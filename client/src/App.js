@@ -4,7 +4,8 @@ import fire from "./config/Fire";
 import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import LandingPage from "./LandingPage";
+import LandingPage from "./Components/LandingPage/LandingPage";
+import Navbar from "./Components/Navbar/Navbar";
 
 class App extends Component {
   constructor() {
@@ -37,21 +38,26 @@ class App extends Component {
   render() {
     let view;
     if (this.state.user) {
-      return (
+      view = (
         <Home
           changeView={this.handleViewChange}
           currentUser={this.state.user}
         />
       );
     } else if (this.state.view === "landing") {
-      return <LandingPage changeView={this.handleViewChange} />;
+      view = <LandingPage changeView={this.handleViewChange} />;
     } else if (this.state.view === "logIn") {
-      return <Login changeView={this.handleViewChange} />;
+      view = <Login changeView={this.handleViewChange} />;
     } else if (this.state.view === "signUp") {
-      return <SignUp changeView={this.handleViewChange} />;
+      view = <SignUp changeView={this.handleViewChange} />;
     }
     // return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
-    return <div className="App">{view}</div>;
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="container">{view}</div>
+      </div>
+    );
   }
 }
 

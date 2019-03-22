@@ -1,0 +1,117 @@
+.landingPageH1 {
+  text-align: center;
+}
+
+.landingPageWrapper {
+  margin-top: 10em;
+}
+
+.signInMessage {
+  margin-top: 0.5em;
+}
+
+.awesome {
+  font-family: futura;
+  font-style: italic;
+
+  width: 100%;
+  -webkit-animation: colorchange 20s infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    border-color: blue;
+  }
+
+  10% {
+    border-color: #8e44ad;
+  }
+
+  20% {
+    border-color: #1abc9c;
+  }
+
+  30% {
+    border-color: #d35400;
+  }
+
+  40% {
+    border-color: blue;
+  }
+
+  50% {
+    border-color: #34495e;
+  }
+
+  60% {
+    border-color: blue;
+  }
+
+  70% {
+    border-color: #2980b9;
+  }
+  80% {
+    border-color: #f1c40f;
+  }
+
+  90% {
+    border-color: #2980b9;
+  }
+
+  100% {
+    border-color: pink;
+  }
+}
+
+.awesome2 {
+  border-color: rgba(0, 0, 0, 0) !important;
+  width: 100%;
+  color: white !important;
+  margin-top: 1em;
+  -webkit-animation: colorchange2 20s infinite alternate;
+}
+
+@-webkit-keyframes colorchange2 {
+  0% {
+    background-color: blue;
+  }
+
+  10% {
+    background-color: #8e44ad;
+  }
+
+  20% {
+    background-color: #1abc9c;
+  }
+
+  30% {
+    background-color: #d35400;
+  }
+
+  40% {
+    background-color: blue;
+  }
+
+  50% {
+    background-color: #34495e;
+  }
+
+  60% {
+    background-color: blue;
+  }
+
+  70% {
+    background-color: #2980b9;
+  }
+  80% {
+    background-color: #f1c40f;
+  }
+
+  90% {
+    background-color: #2980b9;
+  }
+
+  100% {
+    background-color: pink;
+  }
+}
