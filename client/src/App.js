@@ -3,7 +3,7 @@ import "./App.css";
 import fire from "./config/Fire";
 import Home from "./Home";
 import Login from "./Login";
-import SignUp from "./SignUp";
+import SignUp from "./Components/SignUp/SignUp";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Navbar from "./Components/Navbar/Navbar";
 
@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       user: null,
-      view: "landing"
+      view: "signUp"
     };
     this.authListener = this.authListener.bind(this);
   }
