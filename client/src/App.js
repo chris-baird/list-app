@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       user: null,
-      view: "signUp"
+      view: "landing"
     };
     this.authListener = this.authListener.bind(this);
   }
