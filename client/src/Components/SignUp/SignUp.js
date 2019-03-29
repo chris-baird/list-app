@@ -1,7 +1,39 @@
 import React from "react";
+import fire from "../../config/Fire";
 import styles from "./SignUp.module.css";
 
 class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      retypePassword: ""
+    };
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  signup = e => {
+    e.preventDefault();
+    const email = this.state.email.trim();
+    const password = this.state.password.trim();
+    const retypePassword = this.state.retypePassword.trim();
+    if (email !== "" && password === retypePassword) {
+      fire
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(u => {})
+        .then(u => {
+          console.log(u);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  };
   render() {
     return (
       <div className={styles.signUpPageWrapper}>
@@ -10,8 +42,10 @@ class SignUp extends React.Component {
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
+                  onChange={this.handleChange}
+                  name="email"
                   type="email"
                   className="form-control"
                   id="exampleInputEmail1"
@@ -23,8 +57,10 @@ class SignUp extends React.Component {
                 </small>
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Password</label>
                 <input
+                  onChange={this.handleChange}
+                  name="password"
                   type="password"
                   className="form-control"
                   id="exampleInputPassword2"
@@ -32,15 +68,21 @@ class SignUp extends React.Component {
                 />
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword2">Retype Password</label>
+                <label htmlFor="exampleInputPassword2">Retype Password</label>
                 <input
+                  onChange={this.handleChange}
+                  name="retypePassword"
                   type="password"
                   className="form-control"
                   id="exampleInputPassword2"
                   placeholder="Retype Password"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.signup}
+              >
                 Submit
               </button>
             </form>
