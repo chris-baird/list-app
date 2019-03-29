@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
+// import "./App.css";
 import fire from "./config/Fire";
 import Home from "./Home";
-import Login from "./Login";
+import Login from "./Components/LogIn/LogIn";
 import SignUp from "./Components/SignUp/SignUp";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Navbar from "./Components/Navbar/Navbar";
@@ -54,7 +54,7 @@ class App extends Component {
     // return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
     return (
       <div className="App">
-        <Navbar />
+        <Navbar homeLink={this.handleViewChange} />
         <div className="container">{view}</div>
       </div>
     );

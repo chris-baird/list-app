@@ -15,11 +15,17 @@ class LandingPage extends React.Component {
               className={`${styles.awesome} form-control`}
               placeholder="Email Address"
             />
-            <button className={`${styles.awesome2} btn`}>
+            <button
+              className={`${styles.awesome2} btn`}
+              onClick={() => this.props.changeView("signUp")}
+            >
               CREATE FREEE ACCOUNT
             </button>
             <p className={styles.signInMessage}>
-              Already have an account, <a href="www.google.com">Sign In</a>
+              Already have an account,{" "}
+              <a href="#" onClick={() => this.props.changeView("logIn")}>
+                Sign In
+              </a>
             </p>
           </div>
         </div>

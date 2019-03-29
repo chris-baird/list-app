@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./Navbar.component.css";
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <a className="navbar-brand" href="#">
+      <a
+        className="navbar-brand"
+        href="#"
+        onClick={() => props.homeLink("landing")}
+      >
         List App
       </a>
       <button
