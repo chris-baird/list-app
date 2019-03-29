@@ -37,7 +37,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className={styles.signUpPageWrapper}>
-        <h1 className="text-center">Create Account</h1>
+        <h1 className={styles.signUpPageH1}>Create Account</h1>
         <div className="card">
           <div className="card-body">
             <form>

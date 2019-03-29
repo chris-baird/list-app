@@ -1,5 +1,7 @@
 .landingPageH1 {
   text-align: center;
+  margin-bottom: 1em;
+  font-weight: bold;
 }
 
 .landingPageWrapper {
@@ -12,8 +14,8 @@
 }
 
 .awesome {
-  font-family: futura;
-  font-style: italic;
+  /* font-family: futura;
+  font-style: italic; */
 
   width: 100%;
   -webkit-animation: colorchange 20s infinite alternate;

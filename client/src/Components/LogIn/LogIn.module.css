@@ -1,3 +1,9 @@
 .logInPageWrapper {
   margin-top: 10em;
 }
+
+.logInPageH1 {
+  text-align: center;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
