@@ -14,14 +14,13 @@ class App extends Component {
       user: null,
       view: "landing"
     };
-    this.authListener = this.authListener.bind(this);
   }
 
   componentDidMount() {
     this.authListener();
   }
 
-  authListener() {
+  authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
@@ -29,33 +28,34 @@ class App extends Component {
         this.setState({ user: null });
       }
     });
-  }
+  };
 
   handleViewChange = view => {
     this.setState({ view: view });
   };
 
-  render() {
-    let view;
+  handleRenderPage = () => {
     if (this.state.user) {
-      view = (
+      return (
         <Home
           changeView={this.handleViewChange}
           currentUser={this.state.user}
         />
       );
     } else if (this.state.view === "landing") {
-      view = <LandingPage changeView={this.handleViewChange} />;
+      return <LandingPage changeView={this.handleViewChange} />;
     } else if (this.state.view === "logIn") {
-      view = <Login changeView={this.handleViewChange} />;
+      return <Login changeView={this.handleViewChange} />;
     } else if (this.state.view === "signUp") {
-      view = <SignUp changeView={this.handleViewChange} />;
+      return <SignUp changeView={this.handleViewChange} />;
     }
-    // return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
+  };
+
+  render() {
     return (
       <div className="App">
         <Navbar homeLink={this.handleViewChange} />
-        <div className="container">{view}</div>
+        <div className="container">{this.handleRenderPage()}</div>
       </div>
     );
   }
