@@ -2,6 +2,22 @@ import React from "react";
 import styles from "./LandingPage.module.css";
 
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: ""
+    };
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleCreateAccount = () => {
+    this.props.grabEmail(this.state.email);
+    this.props.changeView("signUp");
+  };
+
   render() {
     return (
       <div className={`${styles.landingPageWrapper}`}>
@@ -11,13 +27,16 @@ class LandingPage extends React.Component {
         <div className="card">
           <div className="card-body">
             <input
+              onChange={this.handleChange}
               type="text"
               className={`${styles.awesome} form-control`}
               placeholder="Email Address"
+              name="email"
+              value={this.state.email}
             />
             <button
               className={`${styles.awesome2} btn`}
-              onClick={() => this.props.changeView("signUp")}
+              onClick={this.handleCreateAccount}
             >
               CREATE FREEE ACCOUNT
             </button>
@@ -29,8 +48,6 @@ class LandingPage extends React.Component {
             </p>
           </div>
         </div>
-        {/* <button onClick={() => this.props.changeView("signUp")}>Sign Up</button>
-        <button onClick={() => this.props.changeView("logIn")}>Log In</button> */}
       </div>
     );
   }

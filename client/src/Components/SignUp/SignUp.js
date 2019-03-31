@@ -12,6 +12,10 @@ class SignUp extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({ email: this.props.landingEmail });
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -45,6 +49,7 @@ class SignUp extends React.Component {
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
                   onChange={this.handleChange}
+                  value={this.state.email}
                   name="email"
                   type="email"
                   className="form-control"

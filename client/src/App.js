@@ -12,7 +12,8 @@ class App extends Component {
     super();
     this.state = {
       user: null,
-      view: "landing"
+      view: "landing",
+      landingEmail: ""
     };
   }
 
@@ -34,6 +35,10 @@ class App extends Component {
     this.setState({ view: view });
   };
 
+  handleLandingEmail = email => {
+    this.setState({ landingEmail: email });
+  };
+
   handleRenderPage = () => {
     if (this.state.user) {
       return (
@@ -43,11 +48,21 @@ class App extends Component {
         />
       );
     } else if (this.state.view === "landing") {
-      return <LandingPage changeView={this.handleViewChange} />;
+      return (
+        <LandingPage
+          changeView={this.handleViewChange}
+          grabEmail={this.handleLandingEmail}
+        />
+      );
     } else if (this.state.view === "logIn") {
       return <Login changeView={this.handleViewChange} />;
     } else if (this.state.view === "signUp") {
-      return <SignUp changeView={this.handleViewChange} />;
+      return (
+        <SignUp
+          changeView={this.handleViewChange}
+          landingEmail={this.state.landingEmail}
+        />
+      );
     }
   };
 
