@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import "./App.css";
 import fire from "./config/Fire";
-import Home from "./Home";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/LogIn/LogIn";
 import SignUp from "./Components/SignUp/SignUp";
 import LandingPage from "./Components/LandingPage/LandingPage";
@@ -20,6 +19,15 @@ class App extends Component {
   componentDidMount() {
     this.authListener();
   }
+
+  handleLoginLogout = () => {
+    if (this.state.user) {
+      fire.auth().signOut();
+      this.handleViewChange("landing");
+    } else {
+      this.handleViewChange("logIn");
+    }
+  };
 
   authListener = () => {
     fire.auth().onAuthStateChanged(user => {
@@ -42,7 +50,7 @@ class App extends Component {
   handleRenderPage = () => {
     if (this.state.user) {
       return (
-        <Home
+        <Dashboard
           changeView={this.handleViewChange}
           currentUser={this.state.user}
         />
@@ -69,7 +77,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar homeLink={this.handleViewChange} />
+        <Navbar
+          homeLink={this.handleViewChange}
+          authControl={this.handleLoginLogout}
+          user={this.state.user}
+        />
         <div className="container">{this.handleRenderPage()}</div>
       </div>
     );
