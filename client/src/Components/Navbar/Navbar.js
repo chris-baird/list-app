@@ -2,6 +2,10 @@ import React from "react";
 import styles from "./Navbar.component.css";
 
 class Navbar extends React.Component {
+  handleOnClick = () => {
+    this.props.authControl();
+    this.props.toggleNav();
+  };
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -25,10 +29,13 @@ class Navbar extends React.Component {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${this.props.navProp}`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#" onClick={this.props.authControl}>
+              <a className="nav-link" href="#" onClick={this.handleOnClick}>
                 {this.props.user ? "Log out" : "Log in"}{" "}
                 <span className="sr-only">(current)</span>
               </a>

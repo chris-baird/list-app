@@ -12,13 +12,22 @@ class App extends Component {
     this.state = {
       user: null,
       view: "landing",
-      landingEmail: ""
+      landingEmail: "",
+      navOpen: ""
     };
   }
 
   componentDidMount() {
     this.authListener();
   }
+
+  handleToggleNav = () => {
+    if (this.state.navOpen === "") {
+      this.setState({ navOpen: "hide" });
+    } else {
+      this.setState({ navOpen: "" });
+    }
+  };
 
   handleLoginLogout = () => {
     if (this.state.user) {
@@ -78,6 +87,8 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar
+          navProp={this.state.navOpen}
+          toggleNav={this.handleToggleNav}
           homeLink={this.handleViewChange}
           authControl={this.handleLoginLogout}
           user={this.state.user}
