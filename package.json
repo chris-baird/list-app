@@ -23,6 +23,10 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-    "react-scripts": "^2.1.8"
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "react-scripts": "^2.1.8",
+    "sequelize": "^5.8.2",
+    "sequelize-cli": "^5.4.0"
   }
 }

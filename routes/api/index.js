@@ -3,6 +3,7 @@ const router = require("express").Router();
 const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 const todoRoutes = require("./todo");
+const userRoutes = require("./user");
 
 // Book routes
 router.use("/books", bookRoutes);
@@ -11,6 +12,8 @@ router.use("/books", bookRoutes);
 router.use("/google", googleRoutes);
 
 router.use("/todos", todoRoutes);
+
+router.use("/user", userRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {
