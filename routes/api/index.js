@@ -4,6 +4,7 @@ const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 const todoRoutes = require("./todo");
 const userRoutes = require("./user");
+const listRoutes = require("./list");
 
 // Book routes
 router.use("/books", bookRoutes);
@@ -14,6 +15,8 @@ router.use("/google", googleRoutes);
 router.use("/todos", todoRoutes);
 
 router.use("/user", userRoutes);
+
+router.use("/list", listRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {

@@ -1,6 +1,5 @@
 const db = require("../models");
 
-// Defining methods for the bookController
 module.exports = {
   createUser: function(req, res) {
     db.User.create({
@@ -13,5 +12,15 @@ module.exports = {
       .catch(err => {
         console.log(err);
       });
+  },
+  findUser: (req, res) => {
+    db.User.findOne({
+      where: {
+        userId: req.params.userId
+      },
+      include: [db.List]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
   }
 };
